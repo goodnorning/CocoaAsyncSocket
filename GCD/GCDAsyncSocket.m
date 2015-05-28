@@ -5534,6 +5534,8 @@ enum GCDAsyncSocketConfig
 		
 		ssize_t result = write(socketFD, buffer, (size_t)bytesToWrite);
 		LogVerbose(@"wrote to socket = %zd", result);
+    // slow down the transmission speed
+    [NSThread sleepForTimeInterval:0.05f];
 		
 		// Check results
 		if (result < 0)
